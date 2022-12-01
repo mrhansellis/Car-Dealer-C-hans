@@ -12,5 +12,11 @@ namespace Dealership.Controllers
       List<Car> allInventory = Car.GetAll();
       return View(allInventory);
     }
+
+    [HttpGet("/index/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
   }
 }

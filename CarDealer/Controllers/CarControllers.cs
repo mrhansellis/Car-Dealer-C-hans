@@ -18,5 +18,23 @@ namespace Dealership.Controllers
     {
       return View();
     }
+
+    [HttpPost("/index")]
+    public ActionResult NewCar(string make, string model, int year, int price)
+    {
+      Car newCar = new Car(make, model, year, price);
+      newCar.Make = make;
+      newCar.Model = model;
+      newCar.Year = year;
+      newCar.Price = price;
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/index/delete")]
+    public ActionResult DeleteAll()
+    {
+      Car.ClearAll();
+      return View();
+    }
   }
 }
